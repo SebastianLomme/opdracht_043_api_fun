@@ -1,0 +1,79 @@
+@import "mixin";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+}
+
+header {
+    width: 100%;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+
+    h1 {
+        align-self: center;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        background: green;
+        align-items: center;
+        margin: 0;
+
+        li {
+            list-style: none;
+            padding: 10px;
+            align-content: flex-end;
+
+            &:hover,
+            &:active {
+                background: red;
+                cursor: pointer;
+
+            }
+        }
+    }
+}
+
+.container {
+
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+
+    @include for-tablet {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    @include for-desktop {
+        grid-template-columns: repeat(4, auto);
+    }
+
+    .card{
+        height: 300px;
+        background: gray;
+        margin: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .heading-card,
+        .text-card {
+            padding: 20px;
+        }
+    }
+
+
+}
